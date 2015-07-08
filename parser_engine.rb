@@ -1,5 +1,6 @@
 require 'nokogiri'
 require_relative 'post'
+require_relative 'comment'
 
 class Engine
 
@@ -12,5 +13,13 @@ class Engine
 
     return Post.new(post_title, post_url, post_points, post_id, comments) #return new post object
   end
+
+  def get_comment_details(nokogiri_doc, page_url) #returns a Comment Object
+    comments = (nokogiri_doc.search('.comment > font:first-child').map { |font| font.inner_text}) #get comments
+
+    return Comment.new(comments) #returns a Comments object
+  end
+
+
 
 end

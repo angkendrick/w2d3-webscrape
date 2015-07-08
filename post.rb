@@ -6,25 +6,15 @@ class Post
     @url = url
     @points = points
     @item_id = id
-    @comments = comments
-  end
-
-  def show_comments()
-    #returns all comments
-    count = 1
-    @comments.each do |x|
-      puts "-- Comment #{count} --"
-      puts x
-      count += 1
-    end
   end
 
   def show_stats()
+    puts ""
     puts "Title:    #{@title}"
     puts "Url:      #{@url}"
     puts "Points:   #{@points.join("")}"
     puts "ID:       #{get_number_from_id(@item_id)}"
-    puts "Comments: #{@comments.length}"
+    puts ""
   end
 
   def get_number_from_id(id_array) # cleans up item_id array and returns a string
