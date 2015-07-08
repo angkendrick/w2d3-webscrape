@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Comment
 
   def initialize(comments_array)
@@ -8,8 +10,8 @@ class Comment
     #returns all comments
     count = 1
     @comments.each do |x|
-      puts "-- Comment #{count} --"
-      puts x
+      puts "-- Comment #{count} --".red
+      puts x.blue
       count += 1
     end
   end

@@ -1,3 +1,4 @@
+require 'colorize'
 
 class Post
 
@@ -10,10 +11,10 @@ class Post
 
   def show_stats()
     puts ""
-    puts "Title:    #{@title}"
-    puts "Url:      #{@url}"
-    puts "Points:   #{@points.join("")}"
-    puts "ID:       #{get_number_from_id(@item_id)}"
+    puts "Title:    " + "#{@title}".blue
+    puts "Url:      " + "#{@url}".blue
+    puts "Points:   " + "#{@points.join("")}".blue
+    puts "ID:       " + "#{get_number_from_id(@item_id)}".blue
     puts ""
   end
 

@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'colorize'
 require_relative 'parser_engine'
 require_relative 'post'
 
@@ -27,6 +28,8 @@ class Parser
         @@comment.show_comments()
       when "quit"
         quit = true
+      else
+        "Command not found!".red
       end
 
     end
