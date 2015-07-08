@@ -2,7 +2,7 @@ require 'colorize'
 
 class Post
 
-  def initialize(title, url, points, id, comments)
+  def initialize(title, url, points, id)
     @title = title
     @url = url
     @points = points
