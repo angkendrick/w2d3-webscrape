@@ -1,20 +1,35 @@
-# doc.search('.subtext > span:first-child').map { |span| span.inner_text} returns points
-# doc.search('.subtext > a:nth-child(3)').map {|link| link['href'] } returns item id 
-# doc.search('.title > a:first-child').map { |link| link.inner_text} []
-# doc.search('.title > a:first-child').map { |link| link['href']} []
-# doc.search('.comment > font:first-child').map { |font| font.inner_text} []
 
 class Post
 
-  def initialize()
-    @title = ""
-    @url = ""
-    @points = 0
-    @item_id = 0
+  def initialize(title, url, points, id, comments)
+    @title = title
+    @url = url
+    @points = points
+    @item_id = id
+    @comments = comments
   end
 
-  def comments()
-    #returns all comments 
+  def show_comments()
+    #returns all comments
+    count = 1
+    @comments.each do |x|
+      puts "-- Comment #{count} --"
+      puts x
+      count += 1
+    end
+  end
+
+  def show_stats()
+    puts "Title:    #{@title}"
+    puts "Url:      #{@url}"
+    puts "Points:   #{@points.join("")}"
+    puts "ID:       #{get_number_from_id(@item_id)}"
+    puts "Comments: #{@comments.length}"
+  end
+
+  def get_number_from_id(id_array) # cleans up item_id array and returns a string
+    string = id_array.join("")
+    return string.gsub(/[^\d]/, '')
   end
 
   def add_comment(comment_obj)
