@@ -8,8 +8,12 @@ class Parser
 
   url = ARGV[0]
 
-  #page = Nokogiri::HTML(open(url))
-  raw_page = Nokogiri::HTML(open(url)) #scrape html page
+  begin
+    #page = Nokogiri::HTML(open(url))
+    raw_page = Nokogiri::HTML(open(url)) #scrape html page
+  rescue
+    puts "failed to scrape using Nokogiri"
+  end
 
   engine = Engine.new()
   @@post = engine.get_post_details(raw_page, url) #send raw_page for processing returns Post object
