@@ -10,11 +10,7 @@ class Comment
   def show_comments()
     #returns all comments
     count = 1
-
     merged = merge_users_comments()
-
-
-
     merged.each do |x|
       puts "-- Comment #{count} --".red
       puts "User: " + x[0].green

@@ -15,7 +15,7 @@ class Engine
 
   def get_comment_details(nokogiri_doc, page_url) #returns a Comment Object
     comments = nokogiri_doc.search('.comment > font:first-child').map { |font| font.inner_text} #get comments
-    users = nokogiri_doc.search('.comhead > a:first-child').map {|link| link.inner_text }
+    users = nokogiri_doc.search('.comhead > a:first-child').map {|link| link.inner_text } #get users
 
     return Comment.new(comments, users) #returns a Comments object
   end
